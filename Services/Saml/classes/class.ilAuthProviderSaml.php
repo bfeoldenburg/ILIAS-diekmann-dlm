@@ -85,11 +85,12 @@ class ilAuthProviderSaml extends ilAuthProvider implements ilAuthProviderAccount
             return false;
         }
 
-//patch begin
-//      print_r($this->attributes); exit;
-        \ilUtil::onScreenLog($this->attributes, $s = "SAML");
+        //diekmann patch begin
+        // print_r($this->attributes); exit;
+        // \ilUtil::onScreenLog($this->attributes, $s = "SAML");
         if (isset($this->attributes['urn:oid:2.5.4.3'][0])) {
-            if (strcmp($this->attributes['urn:oid:1.4.5.1.2.2.42.2.1.3.2.3'][0],'xxxxxxxxxxxxxxx') != 0)
+            //if (strcmp($this->attributes['urn:oid:1.4.5.1.2.2.42.2.1.3.2.3'][0],'xxxxxxxxxxxxxxx') != 0)
+            if (strcmp($this->attributes['urn:oid:1.4.5.1.2.2.42.2.1.3.2.3'][0],'BFE01230') != 0) //BFER00074
             {
                 $this->attributes['urn:oid:2.5.4.3'][0] = '';
             }
@@ -106,7 +107,7 @@ class ilAuthProviderSaml extends ilAuthProvider implements ilAuthProviderAccount
                     }
             }
         }
-//patch end
+        //diekmann patch end
 
         try {
             $this->determineUidFromAttributes();

@@ -32,7 +32,7 @@
                           if (frm!=null && frm!==undefined) {
                               let actionurl = frm.action;
                               let actionurlArray = actionurl.split('/');
-                              let newUrl = 'https://saml2.bfe-elearning.de/idp/profile/SAML2/Redirect/'+actionurlArray[7]+'&test=1&_eventId=propagate';
+                              let newUrl = 'https://saml.bfe.de/idp/profile/SAML2/Redirect/'+actionurlArray[7]+'&test=1&_eventId=propagate';
                               //console.log('newUrl', newUrl); 
                               // Anfrage um von allen SP abzumelden muss verzoegert gesendet werden!!:
                               setTimeout(() => {
@@ -79,7 +79,7 @@
                   location.href = 'login.php';
                 }, 1500);
               } else {
-                response2 = response2.replace(/\/idp\//g, 'https://saml2.bfe-elearning.de/idp/');
+                response2 = response2.replace(/\/idp\//g, 'https://saml.bfe.de/idp/');
                 console.log('response2', response2);
                 let iframe = document.createElement('iframe');
                 iframe.style.display = 'none';
