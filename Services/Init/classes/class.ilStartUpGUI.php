@@ -1324,15 +1324,6 @@ class ilStartUpGUI implements ilCtrlBaseClassInterface, ilCtrlSecurityInterface
                 'used_external_auth_mode' => $used_external_auth_mode,
             ]
         );
-        if ($used_external_auth_mode && (int) $this->user->getAuthMode(true) === ilAuthUtils::AUTH_SAML) {
-        //if ((int) $this->user->getAuthMode(true) === ilAuthUtils::AUTH_SAML) {
-            $this->logger->info('Redirecting user to SAML logout script');
-            //$this->ctrl->redirectToURL(
-            //    'saml.php?action=logout&logout_url=' . urlencode(ilUtil::_getHttpPath() . '/login.php')
-            //);
-            header('Location: samllogout.html');
-            exit;
-        }
 
         // reset cookie
         ilUtil::setCookie("ilClientId", "");
